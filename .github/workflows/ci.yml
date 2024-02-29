@@ -1,0 +1,34 @@
+name: CI
+
+on:
+  push:
+    branches: [ "main" ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v4
+    - uses: denoland/setup-deno@v1
+      with:
+        deno-version: v1.x
+
+    - run: deno fmt --check
+
+    - run: make
+
+    - run: |
+        tar --zstd -cvf debug-tmp.tar.zst \
+        tmp
+    - uses: actions/upload-artifact@v4
+      with:
+        name: debug-tmp
+        path: debug-tmp.tar.zst
+
+    # `pmim_sys.db.zst`
+    - run: zstd -19 tmp/pmim_sys.db -o tmp/pmim_sys.db.zst
+    - uses: actions/upload-artifact@v4
+      with:
+        name: pmim_sys.db
+        path: tmp/pmim_sys.db.zst
