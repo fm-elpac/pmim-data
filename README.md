@@ -21,7 +21,19 @@
 
 - `data/` 数据集
 
-TODO
+## 相关文章
+
+- 《从 Unicode 标准提取拼音数据》
+  - <https://www.bilibili.com/read/cv31310500/>
+  - <https://zhuanlan.zhihu.com/p/682228507>
+  - <https://juejin.cn/post/7343902139821686820>
+  - <https://blog.csdn.net/secext2022/article/details/136110314>
+
+- 《双拼 (自然码) 的简单实现》
+  - <https://www.bilibili.com/read/cv31311490/>
+  - <https://zhuanlan.zhihu.com/p/682352730>
+  - <https://juejin.cn/post/7343889290433200139>
+  - <https://blog.csdn.net/secext2022/article/details/136120779>
 
 ## LICENSE
 
