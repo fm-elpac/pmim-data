@@ -60,6 +60,7 @@ async function 元数据(kv) {
   await kv.set(["pmim_db", "v"], {
     pmim: PMIM_VERSION,
     deno_version: Deno.version,
+    n: "胖喵拼音内置数据库 (6w)",
     _last_update: new Date().toISOString(),
   });
 }

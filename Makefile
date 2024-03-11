@@ -3,6 +3,7 @@
 # 默认目标
 tmp/pmim_sys.db: tmp tmp/pinyin_diff.txt tmp/2017.db
 	deno run -A --unstable-kv tool/gen_db_sys.js tmp/pmim_sys.db .
+	cp tmp/pmim_sys.db tmp/pmim_sys-0.db
 	sqlite3 tmp/2017.db "select * from dict_2017 order by c desc" | deno run -A --unstable-kv tool/gen_db_sys_dict.js tmp/pmim_sys.db
 
 # 创建 tmp/ 目录

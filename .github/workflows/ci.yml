@@ -2,7 +2,8 @@ name: CI
 
 on:
   push:
-    branches: [ "main" ]
+    branches:
+      - main
 
 jobs:
   build:
@@ -25,6 +26,13 @@ jobs:
       with:
         name: debug-tmp
         path: debug-tmp.tar.zst
+
+    # `pmim_sys-0.db.zst` (不含词库)
+    - run: zstd -19 tmp/pmim_sys-0.db -o tmp/pmim_sys-0.db.zst
+    - uses: actions/upload-artifact@v4
+      with:
+        name: pmim_sys-0.db
+        path: tmp/pmim_sys-0.db.zst
 
     # `pmim_sys.db.zst`
     - run: zstd -19 tmp/pmim_sys.db -o tmp/pmim_sys.db.zst
