@@ -21,6 +21,28 @@
 
 - `data/` 数据集
 
+## 例行更新维护策略
+
+适用于本仓库 (pmim-data). 当下列条件任意一条满足时,
+本仓库的软件需要发布新的维护版本 (版本号 `x.y.z` 其中 `z` + 1). "更新所有依赖"
+并重新编译 (构建):
+
+- deno 发布新版本 (版本号 `x.y.z` 其中 `x` 或 `y` 变化)
+
+- Unicode 发布新版本 (版本号 `x.y.z` 其中 `x` 变化)
+
+- 各依赖或本仓库发布重要的安全更新 (修复比较严重的安全漏洞)
+
+当前重要依赖的版本号:
+
+- deno 1.42.4
+
+  <https://github.com/denoland/deno>
+
+- Unicode 15.1.0
+
+  <https://www.unicode.org/versions/latest/>
+
 ## 相关文章
 
 - 《从 Unicode 标准提取拼音数据》
@@ -39,5 +61,5 @@
 
 [`CC-BY-SA 4.0+`](https://creativecommons.org/licenses/by-sa/4.0/)
 
-本仓库的内容使用 创意共享-署名-相同方式共享 (CC-BY-SA 4.0) 许可证 (LICENSE).
-This repository is released under Creative Common (CC-BY-SA 4.0) license.
+本仓库的内容使用 创意共享-署名-相同方式共享 (CC-BY-SA 4.0) 许可 (LICENSE). This
+repository is released under Creative Common (CC-BY-SA 4.0) license.

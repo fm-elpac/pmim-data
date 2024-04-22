@@ -5,8 +5,8 @@
 // 命令行示例:
 // > sqlite3 2017.db "select * from dict_2017 order by c desc" \
 // | deno run -A --unstable-kv gen_db_sys_dict.js pmim_sys.db
-import { join } from "https://deno.land/std@0.217.0/path/join.ts";
-import { TextLineStream } from "https://deno.land/std@0.217.0/streams/text_line_stream.ts";
+import { join } from "https://deno.land/std@0.223.0/path/join.ts";
+import { TextLineStream } from "https://deno.land/std@0.223.0/streams/text_line_stream.ts";
 
 import { batch_set, chunk_get } from "./kv_util.js";
 

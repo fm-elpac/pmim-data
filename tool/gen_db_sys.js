@@ -4,8 +4,10 @@
 //
 // 命令行示例:
 // > deno run -A --unstable-kv gen_db_sys.js pmim_sys.db .
-import { join } from "https://deno.land/std@0.215.0/path/join.ts";
+import { join } from "https://deno.land/std@0.223.0/path/join.ts";
 import { batch_set, chunk_set } from "./kv_util.js";
+
+const 数据库版本 = "v0.1.2";
 
 // 元数据
 const PMIM_DB_VERSION = "pmim_sys_db version 0.1.0";
@@ -60,7 +62,7 @@ async function 元数据(kv) {
   await kv.set(["pmim_db", "v"], {
     pmim: PMIM_VERSION,
     deno_version: Deno.version,
-    n: "胖喵拼音内置数据库 (6w)",
+    n: `胖喵拼音内置数据库 ${数据库版本} (6w)`,
     _last_update: new Date().toISOString(),
   });
 }
