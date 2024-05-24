@@ -4,14 +4,12 @@
 //
 // 命令行示例:
 // > deno run -A --unstable-kv gen_db_sys.js pmim_sys.db .
-import { join } from "https://deno.land/std@0.223.0/path/join.ts";
-import { batch_set, chunk_set } from "./kv_util.js";
+import { join } from "@std/path";
+import { batch_set, chunk_set } from "@fm-elpac/deno-kv-util";
 
-const 数据库版本 = "v0.1.2";
+import { 写入元数据 } from "./util.js";
 
-// 元数据
-const PMIM_DB_VERSION = "pmim_sys_db version 0.1.0";
-const PMIM_VERSION = "pmim version 0.1.0";
+const 数据库名称 = "胖喵拼音内置数据库 (0) v0.1.3 (不含词库)";
 
 // 读取拼音数据
 async function 读拼音(文件名) {
@@ -54,17 +52,6 @@ async function 读频率(文件名, 不检查注释) {
     o.push([p[0], Number.parseInt(p[1])]);
   }
   return o;
-}
-
-// 生成元数据
-async function 元数据(kv) {
-  await kv.set(["pmim_db", "version"], PMIM_DB_VERSION);
-  await kv.set(["pmim_db", "v"], {
-    pmim: PMIM_VERSION,
-    deno_version: Deno.version,
-    n: `胖喵拼音内置数据库 ${数据库版本} (6w)`,
-    _last_update: new Date().toISOString(),
-  });
 }
 
 function 清理拼音(p) {
@@ -210,7 +197,7 @@ async function 处理(kv, 目录) {
   await 频率数据(kv, freq_d, freq_o);
 
   console.log("  元数据");
-  await 元数据(kv);
+  await 写入元数据(kv, 数据库名称);
 }
 
 async function main() {

@@ -5,10 +5,13 @@
 // 命令行示例:
 // > sqlite3 2017.db "select * from dict_2017 order by c desc" \
 // | deno run -A --unstable-kv gen_db_sys_dict.js pmim_sys.db
-import { join } from "https://deno.land/std@0.223.0/path/join.ts";
-import { TextLineStream } from "https://deno.land/std@0.223.0/streams/text_line_stream.ts";
+import { join } from "@std/path";
+import { TextLineStream } from "@std/streams";
+import { batch_set, chunk_get } from "@fm-elpac/deno-kv-util";
 
-import { batch_set, chunk_get } from "./kv_util.js";
+import { 写入元数据 } from "./util.js";
+
+const 数据库名称 = "胖喵拼音内置数据库 v0.1.3 (6w)";
 
 async function 读取stdin() {
   const 行 = Deno.stdin.readable
@@ -104,6 +107,9 @@ async function 处理(kv, 数据, p) {
     写入.push([["data", "dict", i], pp[i]]);
   }
   await batch_set(kv, 写入, 1000);
+
+  console.log("  元数据");
+  await 写入元数据(kv, 数据库名称);
 }
 
 async function main() {
