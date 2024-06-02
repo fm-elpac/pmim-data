@@ -11,7 +11,7 @@ import { batch_set, chunk_get } from "@fm-elpac/deno-kv-util";
 
 import { 写入元数据 } from "./util.js";
 
-const 数据库名称 = "胖喵拼音内置数据库 v0.1.3 (6w)";
+const 数据库名称 = "胖喵拼音内置数据库 v0.1.4 (6w)";
 
 async function 读取stdin() {
   const 行 = Deno.stdin.readable

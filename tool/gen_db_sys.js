@@ -9,7 +9,7 @@ import { batch_set, chunk_set } from "@fm-elpac/deno-kv-util";
 
 import { 写入元数据 } from "./util.js";
 
-const 数据库名称 = "胖喵拼音内置数据库 (0) v0.1.3 (不含词库)";
+const 数据库名称 = "胖喵拼音内置数据库 (0) v0.1.4 (不含词库)";
 
 // 读取拼音数据
 async function 读拼音(文件名) {
