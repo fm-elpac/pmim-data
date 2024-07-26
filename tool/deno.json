@@ -1,7 +1,7 @@
 {
   "imports": {
     "@fm-elpac/deno-kv-util": "jsr:@fm-elpac/deno-kv-util@^0.1.1",
-    "@std/path": "jsr:@std/path@^0.225.1",
-    "@std/streams": "jsr:@std/streams@^0.224.2"
+    "@std/path": "jsr:@std/path@^1.0.1",
+    "@std/streams": "jsr:@std/streams@^0.224.5"
   }
 }

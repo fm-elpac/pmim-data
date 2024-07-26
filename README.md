@@ -35,7 +35,7 @@
 
 当前重要依赖的版本号:
 
-- deno 1.44.0
+- deno 1.45.3
 
   <https://github.com/denoland/deno>
 
